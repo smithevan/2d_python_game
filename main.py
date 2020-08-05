@@ -36,15 +36,19 @@ def main():
     clock = pygame.time.Clock()
     snake_x = randint(100, 600)
     snake_y = randint(100, 600)
+
+    egg_x = randint(100, 600)
+    egg_y = randint(100, 600)
+
+    egg = Egg(egg_x, egg_y)
     
 
     def redraw():
         SCREEN.blit(BACKGROUND, (0,0))
         SCREEN.blit(SNAKE, (snake_x,snake_y))  
-        egg_x = randint(100, 600)
-        egg_y = randint(100, 600)
         
-        SCREEN.blit(EGG, (egg_x, egg_y)) 
+        
+        SCREEN.blit(egg, (egg_x, egg_y)) 
             
         pygame.display.update()
        
