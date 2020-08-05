@@ -4,12 +4,12 @@ pygame.init()
 
 WIDTH = 700
 HEIGHT = 700
-screen = pygame.display.set_mode([WIDTH, HEIGHT])
+SCREEN = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption("My Game")
 
 BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join("assets", "texture.png")), (WIDTH, HEIGHT))
 
-SNAKE = pygame.draw.rect(screen, (22, 55, 53), (10, 10, 3, 4), 10)
+SNAKE = pygame.transform.scale(pygame.image.load(os.path.join("assets", "solid_black.png")), (10, 10))
 
 def main():
     running = True
@@ -17,8 +17,10 @@ def main():
     clock = pygame.time.Clock()
 
     def redraw():
-        screen.blit(BACKGROUND, (0,0))
+        SCREEN.blit(BACKGROUND, (0,0))
+        SCREEN.blit(SNAKE, (100,100))
         pygame.display.update()
+       
 
     while running:
         clock.tick(refresh_rate)
@@ -28,7 +30,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        
+       
 
     
 
