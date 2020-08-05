@@ -42,13 +42,13 @@ def main():
                 running = False
         
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
-            snake_x -= 2
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_LEFT] and snake_x > 0:
+            snake_x -= 2 
+        if keys[pygame.K_RIGHT] and snake_x < 690:
             snake_x += 2
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP] and snake_y > 0:
             snake_y -= 2
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_DOWN] and snake_y < 690:
             snake_y += 2
 
        
