@@ -1,5 +1,6 @@
 import os
 import pygame
+from random import randint
 pygame.init()
 
 WIDTH = 700
@@ -15,10 +16,12 @@ def main():
     running = True
     refresh_rate = 60
     clock = pygame.time.Clock()
+    snake_x = randint(10, 600)
+    snake_y = randint(10, 600)
 
     def redraw():
         SCREEN.blit(BACKGROUND, (0,0))
-        SCREEN.blit(SNAKE, (100,100))
+        SCREEN.blit(SNAKE, (snake_x,snake_y))
         pygame.display.update()
        
 
