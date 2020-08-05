@@ -1,19 +1,21 @@
+import os
 import pygame
-# import os
-#import time
-
-# import random
-
 pygame.init()
 
 screen = pygame.display.set_mode([700, 700])
-pygame.display.set_caption("Name")
+pygame.display.set_caption("My Game")
+
+BACKGROUND = pygame.image.load(os.path.join("assets", "solid_black.png"))
 
 
 def main():
     running = True
     refresh_rate = 60
     clock = pygame.time.Clock()
+
+    def redraw():
+        screen.blit(BACKGROUND, (0,0))
+        pygame.display.update()
 
     while running:
         clock.tick(refresh_rate)
@@ -22,7 +24,9 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill((255, 255, 255))
+        
+
+    
 
     pygame.quit()
 
