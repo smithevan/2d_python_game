@@ -6,17 +6,27 @@ pygame.init()
 WIDTH = 700
 HEIGHT = 700
 SCREEN = pygame.display.set_mode([WIDTH, HEIGHT])
-pygame.display.set_caption("My Game")
+pygame.display.set_caption("Egg Snake")
 
 BACKGROUND = pygame.transform.scale(pygame.image.load(os.path.join("assets", "texture.png")), (WIDTH, HEIGHT))
 
 SNAKE = pygame.transform.scale(pygame.image.load(os.path.join("assets", "solid_black.png")), (10, 10))
+
+EGG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "egg.png")), (10, 10))
 
 '''class Snake(self, x, y):
     
     def __init__(self, x, y):
         self.x = x 
         self.y = y '''
+class Egg:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def render(self, SCREEN):
+        pygame.draw.rect(SCREEN)
    
 
 
@@ -26,10 +36,16 @@ def main():
     clock = pygame.time.Clock()
     snake_x = randint(100, 600)
     snake_y = randint(100, 600)
+    
 
     def redraw():
         SCREEN.blit(BACKGROUND, (0,0))
-        SCREEN.blit(SNAKE, (snake_x,snake_y))
+        SCREEN.blit(SNAKE, (snake_x,snake_y))  
+        egg_x = randint(100, 600)
+        egg_y = randint(100, 600)
+        
+        SCREEN.blit(EGG, (egg_x, egg_y)) 
+            
         pygame.display.update()
        
 
